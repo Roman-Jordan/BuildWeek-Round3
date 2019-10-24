@@ -1,5 +1,5 @@
 // Update with your config settings.
-
+require('dotenv')
 module.exports = {
 
   development: {
@@ -19,11 +19,7 @@ module.exports = {
 
   staging: {
     client: 'pg',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
+    connection: 'postgres://roman:hkjfash8yahrjkeh8y32hjk10878w*(8832987324@reactjscode.com:5432/devzone',
     pool: {
       min: 2,
       max: 10

@@ -48,13 +48,92 @@ router.post("/login", (req, res) => {
     });
 });
 
-router.get('/',(req,res)=>{
-  return dbModel
-    .findAll()
-    .then(user=>res.status(200).json(user))
-    .catch(err => res.status(500).json(err))
+
+
+
+
+router.use('/*',(req,res,next)=>{
+  res.status(404).json(shape)
 })
 
-
+const shape = {
+  register:{
+    method: "POST",
+    Authenticated: true,
+    Role: "*",
+    url: "/api/register/",
+    req: {
+      
+      body: {
+        username: {
+          type: "string",
+          unique: true,
+          required: true,
+          min: 5,
+          max: 50
+        },
+        password: {
+          type: "string",
+          min: 8,
+          max: 50
+        },
+        email: {
+          unique: true,
+          min: 8,
+          max: 50
+        },
+        role: {
+          unique: true,
+          min: 8,
+          max: 50
+        }
+      }
+    }
+  },
+  login:{
+    method: "POST",
+    action: "login",
+    Authenticated: false,
+    Role: "*",
+    url: "/api/login/",
+    req: {
+      body: {
+        username: {
+          type: "string",
+          unique: true,
+          required: true,
+          min: 5,
+          max: 50
+        },
+        password: {
+          type: "string",
+          min: 8,
+          max: 50
+        },
+        email: {
+          unique: true,
+          min: 8,
+          max: 50
+        }
+      }
+    }
+  },
+  forgot:{
+    method: "POST",
+    action: "forgot",
+    Authenticated: false,
+    Role: "*",
+    url: `/api/forgot/`,
+    req: {
+      body: {
+        email: {
+          required: true,
+          min: 8,
+          max: 50
+        }
+      }
+    }
+  }
+};
 
 module.exports = router;

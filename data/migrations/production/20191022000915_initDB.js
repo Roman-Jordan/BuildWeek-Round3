@@ -32,7 +32,7 @@ exports.up = function(knex) {
         .references("id")
         .inTable("roles");
       col.unique(['user_id','role_id'])
-    });
+    })
 };
 
 exports.down = function(knex) {
@@ -40,6 +40,6 @@ exports.down = function(knex) {
     return knex.schema
     .dropTableIfExists('user_roles')
     .dropTableIfExists('roles')
-    .dropTableIfExists('user')
+    .dropTableIfExists('users')
 
 };
