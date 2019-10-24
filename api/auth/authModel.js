@@ -39,5 +39,5 @@ function add(obj){
     return db(table)
     .insert(obj,'id')
     .then(([id])=>findById(id))
-    .catch(err=>console.log(err))
+    
 }
