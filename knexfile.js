@@ -31,7 +31,8 @@ module.exports = {
     },
     seeds:{
       directory: './data/seeds/staging'
-    }
+    },
+    debug:true
   },
 
   production: {

@@ -3,8 +3,7 @@ module.exports={
     genToken
 }
 
-const secret = process.env.SECRET || 'MySuperSecretP@$$%@'
-
+const secret = process.env.SECRET 
 
 function genToken(user) {
     

@@ -4,25 +4,15 @@ module.exports={
     findById,
     remove,
     add,
-    editById,
-    findByUserName
+    editById
 }
-const table='users'
+const table='menus'
 function findAll(){
-    return db(table + ' as u')
-    .select('id','username','email','role_id')
+    return db(table)
 }
 function findById(id){
-     id =  Array.isArray(id) ? [id]:id
     return db(table)
-    .select('id','username','=','role_id')
     .where({id})
-    .first()
-}
-
-function findByUserName(username){
-    return db(table)
-    .where({username})
     .first()
 }
 function remove(id) {
