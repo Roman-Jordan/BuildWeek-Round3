@@ -19,7 +19,7 @@ module.exports = {
 
   staging: {
     client: 'pg',
-    connection: 'postgres://roman:hkjfash8yahrjkeh8y32hjk10878w*(8832987324@reactjscode.com:5432/devzone',
+    connection: process.env.DATABASE_URL_STAGING,
     pool: {
       min: 2,
       max: 10
