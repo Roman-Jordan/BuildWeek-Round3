@@ -9,13 +9,13 @@ module.exports={
 }
 const table='users'
 function findAll(){
-    return db(table + ' as u')
-    .select('id','username','email','role_id')
+    return db(`${table} as u `)
+    .select('u.id, u.username, u.role_id')
 }
 function findById(id){
      id =  Array.isArray(id) ? [id]:id
     return db(table)
-    .select('id','username','=','role_id')
+    .select('id','username','role_id')
     .where({id})
     .first()
 }
