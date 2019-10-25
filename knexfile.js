@@ -1,53 +1,48 @@
 // Update with your config settings.
-require('dotenv')
+require("dotenv");
 module.exports = {
-
   development: {
-    client: 'sqlite3',
-    useNullAsDefault:true,
+    client: "sqlite3",
+    useNullAsDefault: true,
     connection: {
-      filename: './data/dev.sqlite3'
+      filename: "./data/dev.sqlite3"
     },
-    migrations:{
-      directory: './data/migrations/dev/'
+    migrations: {
+      directory: "./data/migrations/dev/"
     },
-    seeds:{
-      directory: './data/seeds/dev/'
-    },
-  
+    seeds: {
+      directory: "./data/seeds/dev/"
+    }
   },
-
   staging: {
-    client: 'pg',
+    client: "pg",
     connection: process.env.DATABASE_URL_STAGE,
     pool: {
       min: 2,
       max: 10
     },
-    migrations:{
-      directory: './data/migrations/staging',
-      tableName: 'knex_migrations'
+    migrations: {
+      directory: "./data/migrations/staging",
+      tableName: "knex_migrations"
     },
-    seeds:{
-      directory: './data/seeds/staging'
-    },
-   
+    seeds: {
+      directory: "./data/seeds/staging"
+    }
   },
 
   production: {
-    client: 'pg',
+    client: "pg",
     connection: process.env.DATABASE_URL,
     pool: {
       min: 2,
       max: 10
     },
-    migrations:{
-      directory: './data/migrations/production',
-      tableName: 'knex_migrations'
+    migrations: {
+      directory: "./data/migrations/production",
+      tableName: "knex_migrations"
     },
-    seeds:{
-      directory: './data/seeds/production'
-    },
-   
+    seeds: {
+      directory: "./data/seeds/production"
+    }
   }
-};
+}
