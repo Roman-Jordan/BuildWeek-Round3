@@ -6,7 +6,7 @@ module.exports = async (req, res, next) => {
     !u.username && errors.push({ username: "required" });
     !u.password && errors.push({ password: "required" });
     !u.email && errors.push({ email: "required" });
-    !u.role_id && errors.push({ role: "required" });
+    !u.role_id && errors.push({ role_id: "required" });
 
     //Validate Char Length
     Object.keys(user).map(x => {
