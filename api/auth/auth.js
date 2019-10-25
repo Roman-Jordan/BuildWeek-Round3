@@ -7,7 +7,7 @@ const validateRole = require('./preAuth/verifiyRole')
 
 
 
-router.get('/',(req,res)=>{
+router.get('/',validateRole(2),(req,res)=>{
   dbModel.findAll().then(p=>res.status(404).json(p)).catch(e=> res.status(404).json(e))
 })
 

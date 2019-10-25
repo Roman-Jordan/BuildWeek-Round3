@@ -10,13 +10,15 @@ module.exports={
 const table='users'
 function findAll(){
     return db(`${table} as u `)
-    .select('u.id, u.username, u.role_id')
+    .select('u.id', 'u.username', 'ur.role')
+    .join('user_roles as ur','ur.id','u.role_id')
 }
 function findById(id){
      id =  Array.isArray(id) ? [id]:id
-    return db(table)
-    .select('id','username','role_id')
-    .where({id})
+    return db(`${table} as u `)
+    .select('u.id', 'u.username', 'ur.role')
+    .join('user_roles as ur','ur.id','u.role_id')
+    .where('u.id','=',id)
     .first()
 }
 

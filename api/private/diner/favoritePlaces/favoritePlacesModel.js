@@ -6,18 +6,15 @@ module.exports={
     add,
     editById
 }
-const table='operators'
-
+const table='favorite_places'
 function findAll(){
     return db(table)
 }
-
 function findById(id){
     return db(table)
     .where({id})
     .first()
 }
-
 function remove(id) {
     return db(table)
     .where({id})

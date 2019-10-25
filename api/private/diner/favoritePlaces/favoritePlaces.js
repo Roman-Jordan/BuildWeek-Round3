@@ -1,6 +1,5 @@
 const router = require('express').Router()
 const dbModel = require(Model)
-const trucks = require('./trucks/trucks')
 router
   .get('/',(req,res)=>{
     return dbModel.findAll()
@@ -39,11 +38,4 @@ router
     .then(p=>{res.status(201).json({message:`SUCCESS`,...p})})
     .catch(e=>{res.status(404).json({message:'SOMEMESSAGE', ...e})})
 })
-
-router
-  .use('/:id/trucks',(req,res,next)=>{
-    req.ownerId = req.params.id
-},trucks)
-
-
 module.exports=router

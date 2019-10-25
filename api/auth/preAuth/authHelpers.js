@@ -13,7 +13,7 @@ module.exports = async (req, res, next) => {
       if (
         x === "password" ||
         x === "username" ||
-        x === "email" ||
+        x === "email"    ||
         x === "role_id"
       ) {
         const key = u[x].length;

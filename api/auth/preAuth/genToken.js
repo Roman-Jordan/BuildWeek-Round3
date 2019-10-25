@@ -6,10 +6,11 @@ module.exports={
 const secret = process.env.SECRET 
 
 function genToken(user) {
-    
+    console.log(user)
     const payload = {
-      subject: user.id, // sub in payload is what the token is about
+      user: user.id, // sub in payload is what the token is about
       username: user.username,
+      user_role: user.role
       // ...otherData
     };
   
